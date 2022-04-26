@@ -10,7 +10,7 @@ import styles from './AppHeader.module.css';
 
 export function AppHeader() {
   return (
-    <header className={styles.header} mt-5>
+    <header className={`${styles.header} mt-5`}>
       <ul className={`${styles.menu} text text_type_main-default`}>
         <li className={`${styles.item} m-5`}>
           <div className='mr-2'>
