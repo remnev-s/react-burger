@@ -16,12 +16,14 @@ export function BurgerIngredients() {
   const [current, setCurrent] = useState('one');
   return (
     <>
-      <h1 className='text text_type_main-large mt-10 mb-5 ml-5'>
+      <h1
+        className={`${styles.title} text text_type_main-large mt-10 mb-5 ml-5`}
+      >
         Соберите бургер
       </h1>
 
       <section className={`${styles.ingredients} pl-5`}>
-        <div className={styles.tabs}>
+        <div className={`${styles.tabs} mb-10`}>
           <Tab value='one' active={current === 'one'} onClick={setCurrent}>
             Булки
           </Tab>
@@ -34,7 +36,7 @@ export function BurgerIngredients() {
         </div>
 
         <div className={styles.categories}>
-          <h2 className='text text_type_main-medium mt-10'> Булки </h2>
+          <h2 className='text text_type_main-medium '> Булки </h2>
 
           <div className={`${styles.category} mt-6`}>
             {buns.map((data) => (
@@ -66,7 +68,7 @@ export function BurgerIngredients() {
               <React.Fragment key={data._id}>
                 <div className={`${styles.card} mr-6 mb-6`}>
                   <Counter count={1} size='default' />
-                  <img className='image' src={data.image} alt='buns' />
+                  <img className='image' src={data.image} alt='sauce' />
                   <div
                     className={`${styles.price} text text_type_digits-default pt-1 pb-1 `}
                   >
@@ -90,7 +92,7 @@ export function BurgerIngredients() {
               <React.Fragment key={data._id}>
                 <div className={`${styles.card} mr-6 mb-6`}>
                   <Counter count={1} size='default' />
-                  <img className='image' src={data.image} alt='buns' />
+                  <img className='image' src={data.image} alt='main' />
                   <div
                     className={`${styles.price} text text_type_digits-default pt-1 pb-1 `}
                   >
