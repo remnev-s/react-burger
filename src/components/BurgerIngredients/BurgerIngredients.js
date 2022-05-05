@@ -6,6 +6,7 @@ import {
 } from '@ya.praktikum/react-developer-burger-ui-components';
 
 import { dataSet } from '../../utils/data.js';
+import { ingredientPropType } from '../../utils/prop-types.js';
 import styles from './BurgerIngredients.module.css';
 
 const buns = dataSet.filter((i) => i.type === 'bun');
