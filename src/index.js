@@ -1,6 +1,13 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { App } from './components/App/App.js';
 import './index.css';
 
-render(<App />, document.querySelector('#root'));
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
+
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);

@@ -41,74 +41,68 @@ export function BurgerIngredients() {
 
           <div className={`${styles.category} mt-6`}>
             {buns.map((data) => (
-              <React.Fragment key={data._id}>
-                <div className={`${styles.card} mr-6 mb-6`}>
-                  <Counter count={1} size='default' />
-                  <img className='image' src={data.image} alt='buns' />
-                  <div
-                    className={`${styles.price} text text_type_digits-default pt-1 pb-1 `}
-                  >
-                    20
-                    <span className='ml-2'>
-                      <CurrencyIcon type='primary' />
-                    </span>
-                  </div>
-                  <h3
-                    className={`${styles.card_name} text text_type_main-default`}
-                  >
-                    {data.name}
-                  </h3>
+              <div className={`${styles.card} mr-6 mb-6`} key={data._id}>
+                <Counter count={1} size='default' />
+                <img className='image' src={data.image} alt='buns' />
+                <div
+                  className={`${styles.price} text text_type_digits-default pt-1 pb-1 `}
+                >
+                  20
+                  <span className='ml-2'>
+                    <CurrencyIcon type='primary' />
+                  </span>
                 </div>
-              </React.Fragment>
+                <h3
+                  className={`${styles.card_name} text text_type_main-default`}
+                >
+                  {data.name}
+                </h3>
+              </div>
             ))}
           </div>
 
           <h2 className='text text_type_main-medium mt-10'> Соусы </h2>
           <div className={`${styles.category} mt-6`}>
             {sauce.map((data) => (
-              <React.Fragment key={data._id}>
-                <div className={`${styles.card} mr-6 mb-6`}>
-                  <Counter count={1} size='default' />
-                  <img className='image' src={data.image} alt='sauce' />
-                  <div
-                    className={`${styles.price} text text_type_digits-default pt-1 pb-1 `}
-                  >
-                    20
-                    <span className='ml-2'>
-                      <CurrencyIcon type='primary' />
-                    </span>
-                  </div>
-                  <h3
-                    className={`${styles.card_name} text text_type_main-default`}
-                  >
-                    {data.name}
-                  </h3>
+              <div className={`${styles.card} mr-6 mb-6`} key={data._id}>
+                <Counter count={1} size='default' />
+                <img className='image' src={data.image} alt='sauce' />
+                <div
+                  className={`${styles.price} text text_type_digits-default pt-1 pb-1 `}
+                >
+                  20
+                  <span className='ml-2'>
+                    <CurrencyIcon type='primary' />
+                  </span>
                 </div>
-              </React.Fragment>
+                <h3
+                  className={`${styles.card_name} text text_type_main-default`}
+                >
+                  {data.name}
+                </h3>
+              </div>
             ))}
           </div>
           <h2 className='text text_type_main-medium mt-10'> Начинки </h2>
           <div className={`${styles.category} mt-6`}>
             {main.map((data) => (
-              <React.Fragment key={data._id}>
-                <div className={`${styles.card} mr-6 mb-6`}>
-                  <Counter count={1} size='default' />
-                  <img className='image' src={data.image} alt='main' />
-                  <div
-                    className={`${styles.price} text text_type_digits-default pt-1 pb-1 `}
-                  >
-                    20
-                    <span className='ml-2'>
-                      <CurrencyIcon type='primary' />
-                    </span>
-                  </div>
-                  <h3
-                    className={`${styles.card_name} text text_type_main-default`}
-                  >
-                    {data.name}
-                  </h3>
+              <div className={`${styles.card} mr-6 mb-6`} key={data._id}>
+                <Counter count={1} size='default' />
+                <img className='image' src={data.image} alt='main' />
+                <div
+                  className={`${styles.price} text text_type_digits-default pt-1 pb-1 `}
+                >
+                  20
+                  <span className='ml-2'>
+                    <CurrencyIcon type='primary' />
+                  </span>
                 </div>
-              </React.Fragment>
+                <h3
+                  className={`${styles.card_name} text text_type_main-default`}
+                >
+                  {data.name}
+                </h3>
+              </div>
             ))}
           </div>
         </div>
