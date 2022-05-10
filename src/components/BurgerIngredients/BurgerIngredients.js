@@ -5,15 +5,10 @@ import {
   CurrencyIcon,
 } from '@ya.praktikum/react-developer-burger-ui-components';
 
-import { dataSet } from '../../utils/data.js';
 import { ingredientPropType } from '../../utils/prop-types.js';
 import styles from './BurgerIngredients.module.css';
 
-const buns = dataSet.filter((i) => i.type === 'bun');
-const sauce = dataSet.filter((i) => i.type === 'sauce');
-const main = dataSet.filter((i) => i.type === 'main');
-
-export function BurgerIngredients() {
+export function BurgerIngredients({ ingredients }) {
   const [current, setCurrent] = useState('one');
   return (
     <>
@@ -40,70 +35,76 @@ export function BurgerIngredients() {
           <h2 className='text text_type_main-medium '> Булки </h2>
 
           <div className={`${styles.category} mt-6`}>
-            {buns.map((data) => (
-              <div className={`${styles.card} mr-6 mb-6`} key={data._id}>
-                <Counter count={1} size='default' />
-                <img className='image' src={data.image} alt='buns' />
-                <div
-                  className={`${styles.price} text text_type_digits-default pt-1 pb-1 `}
-                >
-                  20
-                  <span className='ml-2'>
-                    <CurrencyIcon type='primary' />
-                  </span>
+            {ingredients
+              .filter((data) => (data.type = 'bun'))
+              .map((data) => (
+                <div className={`${styles.card} mr-6 mb-6`} key={data._id}>
+                  <Counter count={1} size='default' />
+                  <img className='image' src={data.image} alt='buns' />
+                  <div
+                    className={`${styles.price} text text_type_digits-default pt-1 pb-1 `}
+                  >
+                    20
+                    <span className='ml-2'>
+                      <CurrencyIcon type='primary' />
+                    </span>
+                  </div>
+                  <h3
+                    className={`${styles.card_name} text text_type_main-default`}
+                  >
+                    {data.name}
+                  </h3>
                 </div>
-                <h3
-                  className={`${styles.card_name} text text_type_main-default`}
-                >
-                  {data.name}
-                </h3>
-              </div>
-            ))}
+              ))}
           </div>
 
           <h2 className='text text_type_main-medium mt-10'> Соусы </h2>
           <div className={`${styles.category} mt-6`}>
-            {sauce.map((data) => (
-              <div className={`${styles.card} mr-6 mb-6`} key={data._id}>
-                <Counter count={1} size='default' />
-                <img className='image' src={data.image} alt='sauce' />
-                <div
-                  className={`${styles.price} text text_type_digits-default pt-1 pb-1 `}
-                >
-                  20
-                  <span className='ml-2'>
-                    <CurrencyIcon type='primary' />
-                  </span>
+            {ingredients
+              .filter((data) => (data.type = 'sauce'))
+              .map((data) => (
+                <div className={`${styles.card} mr-6 mb-6`} key={data._id}>
+                  <Counter count={1} size='default' />
+                  <img className='image' src={data.image} alt='sauce' />
+                  <div
+                    className={`${styles.price} text text_type_digits-default pt-1 pb-1 `}
+                  >
+                    20
+                    <span className='ml-2'>
+                      <CurrencyIcon type='primary' />
+                    </span>
+                  </div>
+                  <h3
+                    className={`${styles.card_name} text text_type_main-default`}
+                  >
+                    {data.name}
+                  </h3>
                 </div>
-                <h3
-                  className={`${styles.card_name} text text_type_main-default`}
-                >
-                  {data.name}
-                </h3>
-              </div>
-            ))}
+              ))}
           </div>
           <h2 className='text text_type_main-medium mt-10'> Начинки </h2>
           <div className={`${styles.category} mt-6`}>
-            {main.map((data) => (
-              <div className={`${styles.card} mr-6 mb-6`} key={data._id}>
-                <Counter count={1} size='default' />
-                <img className='image' src={data.image} alt='main' />
-                <div
-                  className={`${styles.price} text text_type_digits-default pt-1 pb-1 `}
-                >
-                  20
-                  <span className='ml-2'>
-                    <CurrencyIcon type='primary' />
-                  </span>
+            {ingredients
+              .filter((data) => (data.type = 'main'))
+              .map((data) => (
+                <div className={`${styles.card} mr-6 mb-6`} key={data._id}>
+                  <Counter count={1} size='default' />
+                  <img className='image' src={data.image} alt='main' />
+                  <div
+                    className={`${styles.price} text text_type_digits-default pt-1 pb-1 `}
+                  >
+                    20
+                    <span className='ml-2'>
+                      <CurrencyIcon type='primary' />
+                    </span>
+                  </div>
+                  <h3
+                    className={`${styles.card_name} text text_type_main-default`}
+                  >
+                    {data.name}
+                  </h3>
                 </div>
-                <h3
-                  className={`${styles.card_name} text text_type_main-default`}
-                >
-                  {data.name}
-                </h3>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       </section>
