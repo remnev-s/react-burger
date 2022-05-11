@@ -10,7 +10,7 @@ import {
 import { ingredientPropType } from '../../utils/prop-types.js';
 import styles from './BurgerConstructor.module.css';
 
-export function BurgerConstructor({ ingredients }) {
+export function BurgerConstructor({ ingredients, onRequestOpen }) {
   return (
     <section className={` ${styles.constructor} pr-5 `}>
       <div className={`${styles.top_card}`}>
@@ -23,6 +23,7 @@ export function BurgerConstructor({ ingredients }) {
               text='Краторная булка N-200i (верх)'
               price={data.price}
               thumbnail={data.image}
+              key={data._id}
             />
           ))}
       </div>
@@ -50,6 +51,7 @@ export function BurgerConstructor({ ingredients }) {
               text='Краторная булка N-200i (низ)'
               price={data.price}
               thumbnail={data.image}
+              key={data._id}
             />
           ))}
       </div>
@@ -63,7 +65,7 @@ export function BurgerConstructor({ ingredients }) {
           </p>
           <CurrencyIcon type='primary' />
         </div>
-        <Button type='primary' size='medium'>
+        <Button type='primary' size='medium' onClick={() => onRequestOpen()}>
           Оформить заказ
         </Button>
       </div>
