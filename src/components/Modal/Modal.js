@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { ModalOverlay } from '../ModalOverlay/ModalOverlay.js';
 import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './Modal.module.css';
+import { modalPropType } from '../../utils/prop-types.js';
 
 export function Modal({ children, onRequestClose, keyDown }) {
   useEffect(() => {

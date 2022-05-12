@@ -1,4 +1,5 @@
 import styles from './IngredientDetails.module.css';
+import { ingredientPropType } from '../../utils/prop-types.js';
 
 export function IngredientDetails({ item }) {
   return (

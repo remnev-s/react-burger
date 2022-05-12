@@ -7,7 +7,7 @@ import {
   Button,
 } from '@ya.praktikum/react-developer-burger-ui-components';
 
-import { ingredientPropType } from '../../utils/prop-types.js';
+import { ingredientPropType, modalPropType } from '../../utils/prop-types.js';
 import styles from './BurgerConstructor.module.css';
 
 export function BurgerConstructor({ ingredients, onRequestOpen }) {
