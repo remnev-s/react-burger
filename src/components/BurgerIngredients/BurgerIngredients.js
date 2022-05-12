@@ -8,7 +8,7 @@ import {
 import { ingredientPropType } from '../../utils/prop-types.js';
 import styles from './BurgerIngredients.module.css';
 
-export function BurgerIngredients({ ingredients }) {
+export function BurgerIngredients({ ingredients, ingredientClick }) {
   const [current, setCurrent] = useState('one');
   return (
     <>
@@ -38,7 +38,11 @@ export function BurgerIngredients({ ingredients }) {
             {ingredients
               .filter((data) => (data.type = 'bun'))
               .map((data) => (
-                <div className={`${styles.card} mr-6 mb-6`} key={data._id}>
+                <div
+                  className={`${styles.card} mr-6 mb-6`}
+                  key={data._id}
+                  onClick={() => ingredientClick(data)}
+                >
                   <Counter count={1} size='default' />
                   <img className='image' src={data.image} alt='buns' />
                   <div
@@ -63,7 +67,11 @@ export function BurgerIngredients({ ingredients }) {
             {ingredients
               .filter((data) => (data.type = 'sauce'))
               .map((data) => (
-                <div className={`${styles.card} mr-6 mb-6`} key={data._id}>
+                <div
+                  className={`${styles.card} mr-6 mb-6`}
+                  key={data._id}
+                  onClick={() => ingredientClick(data)}
+                >
                   <Counter count={1} size='default' />
                   <img className='image' src={data.image} alt='sauce' />
                   <div
@@ -87,7 +95,11 @@ export function BurgerIngredients({ ingredients }) {
             {ingredients
               .filter((data) => (data.type = 'main'))
               .map((data) => (
-                <div className={`${styles.card} mr-6 mb-6`} key={data._id}>
+                <div
+                  className={`${styles.card} mr-6 mb-6`}
+                  key={data._id}
+                  onClick={() => ingredientClick(data)}
+                >
                   <Counter count={1} size='default' />
                   <img className='image' src={data.image} alt='main' />
                   <div

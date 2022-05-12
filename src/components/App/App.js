@@ -27,6 +27,10 @@ export function App() {
     getIngredients();
   }, []);
 
+  const handleIngredientClick = () => {
+    console.log('click');
+  };
+
   const handleOrderClick = () => {
     setOrderDetails(true);
   };
@@ -38,7 +42,10 @@ export function App() {
     <>
       <Container>
         <AppHeader />
-        <BurgerIngredients ingredients={ingredients} />
+        <BurgerIngredients
+          ingredients={ingredients}
+          ingredientClick={handleIngredientClick}
+        />
         <BurgerConstructor
           ingredients={ingredients}
           onRequestOpen={handleOrderClick}
