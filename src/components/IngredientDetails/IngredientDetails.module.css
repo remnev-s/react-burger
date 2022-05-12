@@ -1,0 +1,25 @@
+.details {
+  display: flex;
+  flex-direction: column;
+  min-width: 580px;
+}
+
+.details__title {
+  text-align: left;
+  margin-top: 12px;
+}
+
+.details__list {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.details__list_item {
+  list-style-type: none;
+}
+
+.details__list_item:not(:last-child) {
+  margin-right: 20px;
+}

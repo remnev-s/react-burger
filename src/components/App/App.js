@@ -7,12 +7,17 @@ import { BurgerConstructor } from '../BurgerConstructor/BurgerConstructor.js';
 
 import { Modal } from '../Modal/Modal.js';
 import { OrderDetails } from '../OrderDetails/OrderDetails.js';
+import { IngredientDetails } from '../IngredientDetails/IngredientDetails.js';
 
 import { api, getResponseData } from '../../utils/api.js';
 
 export function App() {
   const [ingredients, setIngredients] = useState([]);
   const [orderDetails, setOrderDetails] = useState(false);
+
+  const [ingredientsDetails, setIngredientsDetails] = useState(false);
+  const [currentIngredient, setCurrentIngredient] = useState({});
+
   useEffect(() => {
     const getIngredients = () => {
       fetch(`${api.baseUrl}/ingredients`, {
@@ -27,8 +32,12 @@ export function App() {
     getIngredients();
   }, []);
 
-  const handleIngredientClick = () => {
-    console.log('click');
+  const handleIngredientClick = (item) => {
+    setCurrentIngredient(item);
+    setIngredientsDetails(true);
+  };
+  const closeIngredientPopup = () => {
+    setIngredientsDetails(false);
   };
 
   const handleOrderClick = () => {
@@ -38,6 +47,14 @@ export function App() {
   const closeOrderPopup = () => {
     setOrderDetails(false);
   };
+
+  const handleEsc = (evt) => {
+    if ((evt.key === 'Escape') & !closeIngredientPopup()) {
+      closeOrderPopup();
+    }
+    closeIngredientPopup();
+  };
+
   return (
     <>
       <Container>
@@ -52,8 +69,14 @@ export function App() {
         />
       </Container>
 
+      {ingredientsDetails && (
+        <Modal onRequestClose={closeIngredientPopup} keyDown={handleEsc}>
+          <IngredientDetails item={currentIngredient} />
+        </Modal>
+      )}
+
       {orderDetails && (
-        <Modal onRequestClose={closeOrderPopup}>
+        <Modal onRequestClose={closeOrderPopup} keyDown={handleEsc}>
           <OrderDetails />
         </Modal>
       )}

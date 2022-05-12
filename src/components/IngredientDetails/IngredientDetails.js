@@ -1,48 +1,50 @@
 import styles from './IngredientDetails.module.css';
 
-export function IngredientDetails({ ingredient }) {
+export function IngredientDetails({ item }) {
   return (
-    <div className={` ${styles.details} pt-30 pr-25 pb-30 pl-25 `}>
-      <h2
-        className={`${styles.details__list} text text_type_digits-large pb-8`}
-      >
+    <div className={` ${styles.details} pt-10 pb-15 pl-10 pr-10`}>
+      <h2 className={`${styles.details__title} text text_type_main-large pb-5`}>
         Детали ингредиента
       </h2>
 
-      <div className='styles.details__inner'>
-        <img className='pr-5 pl-5' src={ingredient.image} />
-        <p className='styles.details__name'> {ingredient.name} </p>
-        <ul className={styles.details__list}>
-          <li className={`${styles.details__list_item}`}>
+      <div className={` ${styles.details__inner}`}>
+        <img className='pb-4' src={item.image} />
+        <p
+          className={` ${styles.details__name} text text_type_main-medium pb-8`}
+        >
+          {item.name}
+        </p>
+        <ul className={`${styles.details__list} `}>
+          <li className={`${styles.details__list_item} mr-5`}>
             <p className='text text_type_main-default text_color_inactive'>
-              Каллории, ккал
+              Каллории,ккал
             </p>
             <span className='text text_type_digits-default text_color_inactive'>
-              {ingredient.calories}
+              {item.calories}
             </span>
           </li>
           <li className={`${styles.details__list_item}`}>
             <p className='text text_type_main-default text_color_inactive'>
-              Белки, г
+              Белки,г
             </p>
             <span className='text text_type_digits-default text_color_inactive'>
-              {ingredient.proteins}
+              {item.proteins}
             </span>
           </li>
           <li className={`${styles.details__list_item}`}>
             <p className='text text_type_main-default text_color_inactive'>
-              Жиры, г
+              Жиры,г
             </p>
             <span className='text text_type_digits-default text_color_inactive'>
-              {ingredient.fat}
+              {item.fat}
             </span>
           </li>
           <li className={`${styles.details__list_item}`}>
             <p className='text text_type_main-default text_color_inactive'>
-              Углеводы, г
+              Углеводы,г
             </p>
             <span className='text text_type_digits-default text_color_inactive'>
-              {ingredient.carbohydrates}
+              {item.carbohydrates}
             </span>
           </li>
         </ul>
