@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-import { Container } from '../Container/Container.js';
-import { AppHeader } from '../Header/AppHeader.js';
-import { BurgerIngredients } from '../BurgerIngredients/BurgerIngredients.js';
-import { BurgerConstructor } from '../BurgerConstructor/BurgerConstructor.js';
+import { Container } from '../Container/Container';
+import { AppHeader } from '../Header/AppHeader';
+import { BurgerIngredients } from '../BurgerIngredients/BurgerIngredients';
+import { BurgerConstructor } from '../BurgerConstructor/BurgerConstructor';
 
-import { Modal } from '../Modal/Modal.js';
-import { OrderDetails } from '../OrderDetails/OrderDetails.js';
-import { IngredientDetails } from '../IngredientDetails/IngredientDetails.js';
+import { Modal } from '../Modal/Modal';
+import { OrderDetails } from '../OrderDetails/OrderDetails';
+import { IngredientDetails } from '../IngredientDetails/IngredientDetails';
 
 import { api, getResponseData } from '../../utils/api.js';
 
@@ -48,13 +48,6 @@ export function App() {
     setOrderDetails(false);
   };
 
-  const handleEsc = (evt) => {
-    if ((evt.key === 'Escape') & !closeIngredientPopup()) {
-      closeOrderPopup();
-    }
-    closeIngredientPopup();
-  };
-
   return (
     <>
       <Container>
@@ -70,13 +63,16 @@ export function App() {
       </Container>
 
       {ingredientsDetails && (
-        <Modal onRequestClose={closeIngredientPopup} keyDown={handleEsc}>
+        <Modal
+          onRequestClose={closeIngredientPopup}
+          keyDown={closeIngredientPopup}
+        >
           <IngredientDetails item={currentIngredient} />
         </Modal>
       )}
 
       {orderDetails && (
-        <Modal onRequestClose={closeOrderPopup} keyDown={handleEsc}>
+        <Modal onRequestClose={closeOrderPopup} keyDown={closeOrderPopup}>
           <OrderDetails />
         </Modal>
       )}

@@ -1,4 +1,5 @@
 import styles from './IngredientDetails.module.css';
+import PropTypes from 'prop-types';
 import { ingredientPropType } from '../../utils/prop-types.js';
 
 export function IngredientDetails({ item }) {
@@ -9,7 +10,7 @@ export function IngredientDetails({ item }) {
       </h2>
 
       <div className={` ${styles.details__inner}`}>
-        <img className='pb-4' src={item.image} />
+        <img className='pb-4' src={item.image_large} />
         <p
           className={` ${styles.details__name} text text_type_main-medium pb-8`}
         >
@@ -53,3 +54,7 @@ export function IngredientDetails({ item }) {
     </div>
   );
 }
+
+IngredientDetails.propTypes = {
+  item: ingredientPropType.isRequired,
+};

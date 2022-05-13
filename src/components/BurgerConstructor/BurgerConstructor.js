@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import {
   ConstructorElement,
   DragIcon,
@@ -20,7 +20,7 @@ export function BurgerConstructor({ ingredients, onRequestOpen }) {
             <ConstructorElement
               type='top'
               isLocked={true}
-              text='Краторная булка N-200i (верх)'
+              text={`${data.name} (верх)`}
               price={data.price}
               thumbnail={data.image}
               key={data._id}
@@ -48,7 +48,7 @@ export function BurgerConstructor({ ingredients, onRequestOpen }) {
             <ConstructorElement
               type='bottom'
               isLocked={true}
-              text='Краторная булка N-200i (низ)'
+              text={`${data.name} (низ)`}
               price={data.price}
               thumbnail={data.image}
               key={data._id}
@@ -72,3 +72,8 @@ export function BurgerConstructor({ ingredients, onRequestOpen }) {
     </section>
   );
 }
+
+BurgerConstructor.propTypes = {
+  ingredients: PropTypes.arrayOf(ingredientPropType).isRequired,
+  onRequestOpen: PropTypes.func.isRequired,
+};

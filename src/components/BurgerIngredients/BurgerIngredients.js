@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   Tab,
   Counter,
@@ -36,7 +37,7 @@ export function BurgerIngredients({ ingredients, ingredientClick }) {
 
           <div className={`${styles.category} mt-6`}>
             {ingredients
-              .filter((data) => (data.type = 'bun'))
+              .filter((data) => data.type === 'bun')
               .map((data) => (
                 <div
                   className={`${styles.card} mr-6 mb-6`}
@@ -65,7 +66,7 @@ export function BurgerIngredients({ ingredients, ingredientClick }) {
           <h2 className='text text_type_main-medium mt-10'> Соусы </h2>
           <div className={`${styles.category} mt-6`}>
             {ingredients
-              .filter((data) => (data.type = 'sauce'))
+              .filter((data) => data.type === 'sauce')
               .map((data) => (
                 <div
                   className={`${styles.card} mr-6 mb-6`}
@@ -93,7 +94,7 @@ export function BurgerIngredients({ ingredients, ingredientClick }) {
           <h2 className='text text_type_main-medium mt-10'> Начинки </h2>
           <div className={`${styles.category} mt-6`}>
             {ingredients
-              .filter((data) => (data.type = 'main'))
+              .filter((data) => data.type === 'main')
               .map((data) => (
                 <div
                   className={`${styles.card} mr-6 mb-6`}
@@ -123,3 +124,7 @@ export function BurgerIngredients({ ingredients, ingredientClick }) {
     </>
   );
 }
+BurgerIngredients.propTypes = {
+  ingredients: PropTypes.arrayOf(ingredientPropType).isRequired,
+  ingredientClick: PropTypes.func.isRequired,
+};
