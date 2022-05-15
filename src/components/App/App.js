@@ -64,6 +64,7 @@ export function App() {
 
       {ingredientsDetails && (
         <Modal
+          title='Детали ингредиента'
           onRequestClose={closeIngredientPopup}
           keyDown={closeIngredientPopup}
         >

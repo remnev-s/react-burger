@@ -6,7 +6,7 @@ import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './Modal.module.css';
 import { modalPropType } from '../../utils/prop-types.js';
 
-export function Modal({ children, onRequestClose, keyDown }) {
+export function Modal({ children, onRequestClose, keyDown, title }) {
   useEffect(() => {
     document.addEventListener('keydown', keyDown);
     document.addEventListener('Escape', onRequestClose);
@@ -19,6 +19,9 @@ export function Modal({ children, onRequestClose, keyDown }) {
   return ReactDOM.createPortal(
     <>
       <div className={styles.modal}>
+        <h2 className={`${styles.modal__title} text text_type_main-large pb-5`}>
+          {title}
+        </h2>
         <button className={styles.modal__closeBtn} type='button'>
           <CloseIcon type='primary' onClick={onRequestClose} />
         </button>

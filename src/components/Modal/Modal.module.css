@@ -21,3 +21,11 @@
   background-color: transparent;
   cursor: pointer;
 }
+
+.modal__title {
+  text-align: left;
+  margin-top: 12px;
+  position: absolute;
+  top: 40px;
+  left: 60px;
+}
