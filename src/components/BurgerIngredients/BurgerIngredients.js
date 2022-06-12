@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 import PropTypes from 'prop-types';
 import {
   Tab,
@@ -21,19 +22,19 @@ export function BurgerIngredients({ ingredients, ingredientClick }) {
 
       <section className={`${styles.ingredients} pl-5`}>
         <div className={`${styles.tabs} mb-10`}>
-          <Tab value='one' active={current === 'one'} onClick={setCurrent}>
+          <Tab value="one" active={current === 'one'} onClick={setCurrent}>
             Булки
           </Tab>
-          <Tab value='two' active={current === 'two'} onClick={setCurrent}>
+          <Tab value="two" active={current === 'two'} onClick={setCurrent}>
             Соусы
           </Tab>
-          <Tab value='three' active={current === 'three'} onClick={setCurrent}>
+          <Tab value="three" active={current === 'three'} onClick={setCurrent}>
             Начинки
           </Tab>
         </div>
 
         <div className={styles.categories}>
-          <h2 className='text text_type_main-medium '> Булки </h2>
+          <h2 className="text text_type_main-medium "> Булки </h2>
 
           <div className={`${styles.category} mt-6`}>
             {ingredients
@@ -44,14 +45,14 @@ export function BurgerIngredients({ ingredients, ingredientClick }) {
                   key={data._id}
                   onClick={() => ingredientClick(data)}
                 >
-                  <Counter count={1} size='default' />
-                  <img className='image' src={data.image} alt='buns' />
+                  <Counter count={1} size="default" />
+                  <img className="image" src={data.image} alt="buns" />
                   <div
                     className={`${styles.price} text text_type_digits-default pt-1 pb-1 `}
                   >
                     20
-                    <span className='ml-2'>
-                      <CurrencyIcon type='primary' />
+                    <span className="ml-2">
+                      <CurrencyIcon type="primary" />
                     </span>
                   </div>
                   <h3
@@ -63,7 +64,7 @@ export function BurgerIngredients({ ingredients, ingredientClick }) {
               ))}
           </div>
 
-          <h2 className='text text_type_main-medium mt-10'> Соусы </h2>
+          <h2 className="text text_type_main-medium mt-10"> Соусы </h2>
           <div className={`${styles.category} mt-6`}>
             {ingredients
               .filter((data) => data.type === 'sauce')
@@ -73,14 +74,14 @@ export function BurgerIngredients({ ingredients, ingredientClick }) {
                   key={data._id}
                   onClick={() => ingredientClick(data)}
                 >
-                  <Counter count={1} size='default' />
-                  <img className='image' src={data.image} alt='sauce' />
+                  <Counter count={1} size="default" />
+                  <img className="image" src={data.image} alt="sauce" />
                   <div
                     className={`${styles.price} text text_type_digits-default pt-1 pb-1 `}
                   >
                     20
-                    <span className='ml-2'>
-                      <CurrencyIcon type='primary' />
+                    <span className="ml-2">
+                      <CurrencyIcon type="primary" />
                     </span>
                   </div>
                   <h3
@@ -91,7 +92,7 @@ export function BurgerIngredients({ ingredients, ingredientClick }) {
                 </div>
               ))}
           </div>
-          <h2 className='text text_type_main-medium mt-10'> Начинки </h2>
+          <h2 className="text text_type_main-medium mt-10"> Начинки </h2>
           <div className={`${styles.category} mt-6`}>
             {ingredients
               .filter((data) => data.type === 'main')
@@ -101,14 +102,14 @@ export function BurgerIngredients({ ingredients, ingredientClick }) {
                   key={data._id}
                   onClick={() => ingredientClick(data)}
                 >
-                  <Counter count={1} size='default' />
-                  <img className='image' src={data.image} alt='main' />
+                  <Counter count={1} size="default" />
+                  <img className="image" src={data.image} alt="main" />
                   <div
                     className={`${styles.price} text text_type_digits-default pt-1 pb-1 `}
                   >
                     20
-                    <span className='ml-2'>
-                      <CurrencyIcon type='primary' />
+                    <span className="ml-2">
+                      <CurrencyIcon type="primary" />
                     </span>
                   </div>
                   <h3
